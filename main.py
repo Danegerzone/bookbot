@@ -1,7 +1,19 @@
 import stats
+import sys
 
 def main():
-    book_path = "./books/frankenstein.txt" # hard-coded relative path to the book .txt file
+    if len(sys.argv) == 1:
+        print("Invalid Entry")
+        print("Please see usage below:")
+        print("-------------------------------------")
+        print("Usage: python3 main.py <path_to_book>")
+        print("-------------------------------------")
+        print("Exiting program...")
+
+        sys.exit(1)
+
+    else:
+        book_path = sys.argv[1]
 
     with open(book_path) as f: # with operator will close the .txt file when the operation is completed for memory conservation
         book_string = f.read() # .read() function takes the .txt file and converts it into a string which is assigned to the book_string variable
